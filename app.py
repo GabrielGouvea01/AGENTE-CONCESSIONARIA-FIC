@@ -82,3 +82,72 @@ def agendar():
 # Rodar o nosso app
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000)
+
+
+# Preciso que você crie o código do front-end para uma concessionária de carros chamada Concessionária VeloCidade (Slogan: "Aqui seu sonho corre mais rápido"). O design deve ser moderno, elegante, responsivo e com uma temática automobilística (sugiro um tema escuro com detalhes em vermelho ou laranja esportivo). Use HTML5 puro, Tailwind CSS (via CDN) e JavaScript vanilla concentrados em um único arquivo para facilitar a execução.
+
+# O site deve ser uma SPA (Single Page Application) baseada em um sistema de 3 abas (abas navegáveis via botões no menu superior):
+
+# 1. Aba "Início":
+
+# Exiba o nome da concessionária em destaque e o slogan.
+
+# Adicione um texto institucional sobre a paixão por velocidade e atendimento exclusivo.
+
+# Liste os serviços oferecidos: Test Drive Agendado, Financiamento com Taxas Especiais, Garantia Estendida, Oficina Especializada e Consultoria de Customização.
+
+# 2. Aba "Carros Disponíveis":
+
+# Crie um Grid de cards para exibir os 5 carros do catálogo. Cada card deve ter uma foto (use links reais do Unsplash de carros semelhantes para ilustrar), nome do carro, categoria e o valor formatado em Reais.
+
+# Os carros são:
+
+# Toyota Corolla (Tradicional) - R$ 150.000
+
+# Honda Civic (Tradicional) - R$ 160.000
+
+# Porsche 911 Carrera (Esportivo) - R$ 900.000
+
+# Chevrolet Corvette Stingray (Esportivo) - R$ 850.000
+
+# Rolls-Royce Phantom (Luxo) - R$ 6.000.000
+
+# 3. Aba "Agendar Visita":
+
+# Um formulário de agendamento de Test Drive / Visita.
+
+# O formulário deve conter exatamente os seguintes campos obrigatórios:
+
+# Nome Completo (nome) -> Campo de texto.
+
+# E-mail (email) -> Campo de e-mail.
+
+# Data da Visita (data_visita) -> Input tipo date.
+
+# Modelo do Carro (modelo_carro) -> Um campo select (dropdown) com as 5 opções de carros listadas acima.
+
+# 4. NOVO REQUISITO: Assistente Virtual (Widget de Chat Flutuante):
+
+# No canto inferior direito da tela, adicione um botão flutuante fixo (estilo um ícone de balão de conversa).
+
+# Ao clicar nesse botão, deve abrir uma pequena janela de chat (e fechar se clicado novamente).
+
+# A janela de chat deve ter:
+
+# Um topo fixo dizendo "Assistente VeloCidade" com um botão para fechar.
+
+# Uma área central de rolagem onde as mensagens enviadas e recebidas serão exibidas em formato de "balões" estilo WhatsApp.
+
+# Um campo de texto na parte inferior com um botão "Enviar".
+
+# Exiba uma mensagem inicial automática do assistente: "Olá! Sou o assistente da VeloCidade. Quer saber mais sobre nossos carros ou serviços? Pergunte-me qualquer coisa!"
+
+# Regras de Integração e Comunicação (Obrigatório JSON):
+
+# Para o Formulário de Agendamento: Ao enviar, o JavaScript deve coletar os dados e fazer um fetch via POST para https://agente-concessionaria-fic.onrender.com/agendar com o cabeçalho 'Content-Type': 'application/json' e o corpo em string JSON ({ "nome": "...", "email": "...", "data_visita": "...", "modelo_carro": "..." }).
+
+# Para o Chat do Assistente: Ao enviar uma mensagem, exiba o balão do usuário na tela imediatamente. Em seguida, faça um fetch via POST para https://agente-concessionaria-fic.onrender.com/chat enviando o payload em JSON exatamente assim: { "pergunta": "texto da mensagem" }.
+
+# Enquanto espera a resposta da API, mostre um indicador visual de "digitando..." ou "carregando...".
+
+# Assim que a API responder, pegue o valor do campo resposta do JSON retornado e exiba-o como o balão do assistente na tela.
